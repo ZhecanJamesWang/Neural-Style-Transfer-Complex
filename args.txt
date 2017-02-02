@@ -1,0 +1,22 @@
+conv1_1
+conv2_1
+conv3_1
+conv4_1
+
+--content_layer conv5_1
+
+
+--content_weight 0.025
+--style_weight 1
+
+
+
+
+
+有alexnet这种小网络可以尝试
+
+res18 也比较小
+可以收索下看有什么简单的style transfer 模型。
+要确认你的权重是读取进去了，可以把权重的值调出来看看
+
+把这个都写到ppt里
