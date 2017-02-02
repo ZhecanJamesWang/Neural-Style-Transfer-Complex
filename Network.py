@@ -78,7 +78,7 @@ parser.add_argument("--rescale_method", dest="rescale_method", default="bilinear
 parser.add_argument("--maintain_aspect_ratio", dest="maintain_aspect_ratio", default="True", type=str,
                     help="Maintain aspect ratio of loaded images")
 
-parser.add_argument("--content_layer", dest="content_layer", default="conv5_2", type=str,
+parser.add_argument("--content_layer", dest="content_layer", default="conv4_2", type=str,
                     help="Content layer used for content loss.")
 
 parser.add_argument("--init_image", dest="init_image", default="content", type=str,
@@ -316,16 +316,16 @@ ip = Input(tensor=input_tensor, shape=shape)
 
 # build the VGG16 network with our 3 images as input
 x = Convolution2D(64, 3, 3, activation='relu', name='conv1_1', border_mode='same')(ip)
-x = Convolution2D(64, 3, 3, activation='relu', name='conv1_2', border_mode='same')(x)
+# x = Convolution2D(64, 3, 3, activation='relu', name='conv1_2', border_mode='same')(x)
 x = pooling_func(x)
 
 x = Convolution2D(128, 3, 3, activation='relu', name='conv2_1', border_mode='same')(x)
-x = Convolution2D(128, 3, 3, activation='relu', name='conv2_2', border_mode='same')(x)
+# x = Convolution2D(128, 3, 3, activation='relu', name='conv2_2', border_mode='same')(x)
 x = pooling_func(x)
 
 x = Convolution2D(256, 3, 3, activation='relu', name='conv3_1', border_mode='same')(x)
-x = Convolution2D(256, 3, 3, activation='relu', name='conv3_2', border_mode='same')(x)
-x = Convolution2D(256, 3, 3, activation='relu', name='conv3_3', border_mode='same')(x)
+# x = Convolution2D(256, 3, 3, activation='relu', name='conv3_2', border_mode='same')(x)
+# x = Convolution2D(256, 3, 3, activation='relu', name='conv3_3', border_mode='same')(x)
 # if args.model == "vgg19":
 #     x = Convolution2D(256, 3, 3, activation='relu', name='conv3_4', border_mode='same')(x)
 x = pooling_func(x)
@@ -338,7 +338,7 @@ x = Convolution2D(512, 3, 3, activation='relu', name='conv4_2', border_mode='sam
 x = pooling_func(x)
 
 x = Convolution2D(512, 3, 3, activation='relu', name='conv5_1', border_mode='same')(x)
-x = Convolution2D(512, 3, 3, activation='relu', name='conv5_2', border_mode='same')(x)
+# x = Convolution2D(512, 3, 3, activation='relu', name='conv5_2', border_mode='same')(x)
 # x = Convolution2D(512, 3, 3, activation='relu', name='conv5_3', border_mode='same')(x)
 # if args.model == "vgg19":
 #     x = Convolution2D(512, 3, 3, activation='relu', name='conv5_4', border_mode='same')(x)
@@ -461,7 +461,9 @@ else:
 
 channel_index = 1 if K.image_dim_ordering() == "th" else -1
 
-feature_layers = ['conv1_1', 'conv2_1', 'conv3_1', 'conv4_1', 'conv5_1']
+# feature_layers = ['conv1_1', 'conv2_1', 'conv3_1', 'conv4_1', 'conv5_1']
+feature_layers = ['conv4_1', 'conv5_1']
+
 
 for layer_name in feature_layers:
     layer_features = outputs_dict[layer_name]
