@@ -78,7 +78,7 @@ parser.add_argument("--rescale_method", dest="rescale_method", default="bilinear
 parser.add_argument("--maintain_aspect_ratio", dest="maintain_aspect_ratio", default="True", type=str,
                     help="Maintain aspect ratio of loaded images")
 
-parser.add_argument("--content_layer", dest="content_layer", default="conv5_2", type=str,
+parser.add_argument("--content_layer", dest="content_layer", default="block4_conv2", type=str,
                     help="Content layer used for content loss.")
 
 parser.add_argument("--init_image", dest="init_image", default="content", type=str,
@@ -315,33 +315,33 @@ else:
 ip = Input(tensor=input_tensor, shape=shape)
 
 # build the VGG16 network with our 3 images as input
-x = Convolution2D(64, 3, 3, activation='relu', name='conv1_1', border_mode='same')(ip)
-x = Convolution2D(64, 3, 3, activation='relu', name='conv1_2', border_mode='same')(x)
+x = Convolution2D(64, 3, 3, activation='relu', name='block1_conv1', border_mode='same')(ip)
+x = Convolution2D(64, 3, 3, activation='relu', name='block1_conv2', border_mode='same')(x)
 x = pooling_func(x)
 
-x = Convolution2D(128, 3, 3, activation='relu', name='conv2_1', border_mode='same')(x)
-x = Convolution2D(128, 3, 3, activation='relu', name='conv2_2', border_mode='same')(x)
+x = Convolution2D(128, 3, 3, activation='relu', name='block2_conv1', border_mode='same')(x)
+x = Convolution2D(128, 3, 3, activation='relu', name='block2_conv2', border_mode='same')(x)
 x = pooling_func(x)
 
-x = Convolution2D(256, 3, 3, activation='relu', name='conv3_1', border_mode='same')(x)
-x = Convolution2D(256, 3, 3, activation='relu', name='conv3_2', border_mode='same')(x)
-x = Convolution2D(256, 3, 3, activation='relu', name='conv3_3', border_mode='same')(x)
+x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv1', border_mode='same')(x)
+x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv2', border_mode='same')(x)
+x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv3', border_mode='same')(x)
 if args.model == "vgg19":
-    x = Convolution2D(256, 3, 3, activation='relu', name='conv3_4', border_mode='same')(x)
+    x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv4', border_mode='same')(x)
 x = pooling_func(x)
 
-x = Convolution2D(512, 3, 3, activation='relu', name='conv4_1', border_mode='same')(x)
-x = Convolution2D(512, 3, 3, activation='relu', name='conv4_2', border_mode='same')(x)
-x = Convolution2D(512, 3, 3, activation='relu', name='conv4_3', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv1', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv2', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv3', border_mode='same')(x)
 if args.model == "vgg19":
-    x = Convolution2D(512, 3, 3, activation='relu', name='conv4_4', border_mode='same')(x)
+    x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv4', border_mode='same')(x)
 x = pooling_func(x)
 
-x = Convolution2D(512, 3, 3, activation='relu', name='conv5_1', border_mode='same')(x)
-x = Convolution2D(512, 3, 3, activation='relu', name='conv5_2', border_mode='same')(x)
-x = Convolution2D(512, 3, 3, activation='relu', name='conv5_3', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block5_conv1', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block5_conv2', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block5_conv3', border_mode='same')(x)
 if args.model == "vgg19":
-    x = Convolution2D(512, 3, 3, activation='relu', name='conv5_4', border_mode='same')(x)
+    x = Convolution2D(512, 3, 3, activation='relu', name='block5_conv4', border_mode='same')(x)
 x = pooling_func(x)
 
 model = Model(ip, x)
@@ -357,8 +357,8 @@ else:
     else:
         weights = get_file('vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5', TF_WEIGHTS_PATH_NO_TOP, cache_subdir='models')
 
-model.load_weights(weights)
-# , by_name=True
+model.load_weights(weights, by_name=True)
+
 
 
 if K.backend() == 'tensorflow' and K.image_dim_ordering() == "th":
@@ -463,7 +463,8 @@ else:
 
 channel_index = 1 if K.image_dim_ordering() == "th" else -1
 
-feature_layers = ['conv1_1', 'conv2_1', 'conv3_1', 'conv4_1', 'conv5_1']
+# feature_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1', 'block4_conv1', 'block5_conv1']
+feature_layers = ['block4_conv1', 'block5_conv1']
 
 
 
