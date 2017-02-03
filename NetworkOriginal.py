@@ -161,7 +161,6 @@ img_width = img_height = 0
 img_WIDTH = img_HEIGHT = 0
 aspect_ratio = 0
 
-assert args.init_image in ["content", "noise", "gray"], "init_image must be one of ['content', 'noise', 'gray']"
 assert args.content_loss_type in [0, 1, 2], "Content Loss Type must be one of 0, 1 or 2"
 
 
@@ -187,7 +186,7 @@ def preprocess_image(image_path, load_dims=False, read_mode="color"):
         aspect_ratio = float(img_HEIGHT) / img_WIDTH
 
         img_width = args.img_size
-        if args.maintain_aspect_ratio:
+        if maintain_aspect_ratio:
             img_height = int(img_width * aspect_ratio)
         else:
             img_height = args.img_size
@@ -358,8 +357,6 @@ else:
         weights = get_file('vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5', TF_WEIGHTS_PATH_NO_TOP, cache_subdir='models')
 
 model.load_weights(weights)
-# , by_name=True
-
 
 if K.backend() == 'tensorflow' and K.image_dim_ordering() == "th":
     warnings.warn('You are using the TensorFlow backend, yet you '
@@ -464,9 +461,6 @@ else:
 channel_index = 1 if K.image_dim_ordering() == "th" else -1
 
 feature_layers = ['conv1_1', 'conv2_1', 'conv3_1', 'conv4_1', 'conv5_1']
-
-
-
 for layer_name in feature_layers:
     layer_features = outputs_dict[layer_name]
     shape = shape_dict[layer_name]
@@ -542,11 +536,14 @@ evaluator = Evaluator()
 
 if "content" in args.init_image or "gray" in args.init_image:
     x = preprocess_image(base_image_path, True, read_mode=read_mode)
-else:
+elif "noise" in args.init_image:
     x = np.random.uniform(0, 255, (1, img_width, img_height, 3)) - 128.
 
     if K.image_dim_ordering() == "th":
         x = x.transpose((0, 3, 1, 2))
+else:
+    print("Using initial image : ", args.init_image)
+    x = preprocess_image(args.init_image, read_mode=read_mode)
 
 # We require original image if we are to preserve color in YCbCr mode
 if preserve_color:
@@ -609,7 +606,3 @@ for i in range(num_iter):
             print("Improvement (%f) is less than improvement threshold (%f). Early stopping script." % (
                 improvement, improvement_threshold))
             exit()
-
-
-# print len(model.get_weights()[0][0][0][0])
-# print model.get_weights()[0][0][0][0]
