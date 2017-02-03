@@ -326,22 +326,22 @@ x = pooling_func(x)
 x = Convolution2D(256, 3, 3, activation='relu', name='conv3_1', border_mode='same')(x)
 x = Convolution2D(256, 3, 3, activation='relu', name='conv3_2', border_mode='same')(x)
 x = Convolution2D(256, 3, 3, activation='relu', name='conv3_3', border_mode='same')(x)
-# if args.model == "vgg19":
-#     x = Convolution2D(256, 3, 3, activation='relu', name='conv3_4', border_mode='same')(x)
+if args.model == "vgg19":
+    x = Convolution2D(256, 3, 3, activation='relu', name='conv3_4', border_mode='same')(x)
 x = pooling_func(x)
 
 x = Convolution2D(512, 3, 3, activation='relu', name='conv4_1', border_mode='same')(x)
 x = Convolution2D(512, 3, 3, activation='relu', name='conv4_2', border_mode='same')(x)
 x = Convolution2D(512, 3, 3, activation='relu', name='conv4_3', border_mode='same')(x)
-# if args.model == "vgg19":
-#     x = Convolution2D(512, 3, 3, activation='relu', name='conv4_4', border_mode='same')(x)
+if args.model == "vgg19":
+    x = Convolution2D(512, 3, 3, activation='relu', name='conv4_4', border_mode='same')(x)
 x = pooling_func(x)
 
 x = Convolution2D(512, 3, 3, activation='relu', name='conv5_1', border_mode='same')(x)
 x = Convolution2D(512, 3, 3, activation='relu', name='conv5_2', border_mode='same')(x)
 x = Convolution2D(512, 3, 3, activation='relu', name='conv5_3', border_mode='same')(x)
-# if args.model == "vgg19":
-#     x = Convolution2D(512, 3, 3, activation='relu', name='conv5_4', border_mode='same')(x)
+if args.model == "vgg19":
+    x = Convolution2D(512, 3, 3, activation='relu', name='conv5_4', border_mode='same')(x)
 x = pooling_func(x)
 
 model = Model(ip, x)
@@ -358,6 +358,7 @@ else:
         weights = get_file('vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5', TF_WEIGHTS_PATH_NO_TOP, cache_subdir='models')
 
 model.load_weights(weights, by_name=True)
+
 
 if K.backend() == 'tensorflow' and K.image_dim_ordering() == "th":
     warnings.warn('You are using the TensorFlow backend, yet you '
@@ -462,7 +463,7 @@ else:
 channel_index = 1 if K.image_dim_ordering() == "th" else -1
 
 feature_layers = ['conv1_1', 'conv2_1', 'conv3_1', 'conv4_1', 'conv5_1']
-# feature_layers = ['conv4_1', 'conv5_1']
+
 
 
 for layer_name in feature_layers:
@@ -607,3 +608,7 @@ for i in range(num_iter):
             print("Improvement (%f) is less than improvement threshold (%f). Early stopping script." % (
                 improvement, improvement_threshold))
             exit()
+
+
+# print len(model.get_weights()[0][0][0][0])
+# print model.get_weights()[0][0][0][0]
