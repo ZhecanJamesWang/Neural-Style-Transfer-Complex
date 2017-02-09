@@ -316,22 +316,22 @@ ip = Input(tensor=input_tensor, shape=shape)
 
 # build the VGG16 network with our 3 images as input
 x = Convolution2D(64, 3, 3, activation='relu', name='block1_conv1', border_mode='same')(ip)
-# x = Convolution2D(64, 3, 3, activation='relu', name='block1_conv2', border_mode='same')(x)
+x = Convolution2D(64, 3, 3, activation='relu', name='block1_conv2', border_mode='same')(x)
 x = pooling_func(x)
 
 x = Convolution2D(128, 3, 3, activation='relu', name='block2_conv1', border_mode='same')(x)
-# x = Convolution2D(128, 3, 3, activation='relu', name='block2_conv2', border_mode='same')(x)
+x = Convolution2D(128, 3, 3, activation='relu', name='block2_conv2', border_mode='same')(x)
 x = pooling_func(x)
 
 x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv1', border_mode='same')(x)
-# x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv2', border_mode='same')(x)
+x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv2', border_mode='same')(x)
 # x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv3', border_mode='same')(x)
 # if args.model == "vgg19":
 #     x = Convolution2D(256, 3, 3, activation='relu', name='block3_conv4', border_mode='same')(x)
 x = pooling_func(x)
 
-# x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv1', border_mode='same')(x)
-# x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv2', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv1', border_mode='same')(x)
+x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv2', border_mode='same')(x)
 # x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv3', border_mode='same')(x)
 # if args.model == "vgg19":
 #     x = Convolution2D(512, 3, 3, activation='relu', name='block4_conv4', border_mode='same')(x)
@@ -463,7 +463,7 @@ else:
 
 channel_index = 1 if K.image_dim_ordering() == "th" else -1
 
-feature_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1']
+feature_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1', 'block4_conv1']
 # feature_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1', 'block4_conv1', 'block5_conv1']
 # feature_layers = ['block1_conv2', 'block2_conv2', 'block3_conv2', 'block4_conv2', 'block5_conv2']
 
