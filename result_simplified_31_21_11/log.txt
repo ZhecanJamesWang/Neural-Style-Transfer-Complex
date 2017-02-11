@@ -1,0 +1,269 @@
+02102017_1
+
+struct
+11
+21
+31
+
+conv
+21
+
+style 
+11
+21
+31
+
+
+james@eea0604lnx:~/Neural-Style-Transfer-Complex$ python Network.py images/inputs/content/black_white_young_man.jpg images/inputs/style/frida_kahlo.jpg result_simplified_31_21_11/result --content_layer block2_conv1 --num_iter 50
+Using TensorFlow backend.
+Model loaded.
+Starting iteration 1 of 50
+('Current loss value:', 26268566.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_1.png')
+Iteration 1 completed in 23s
+Starting iteration 2 of 50
+('Current loss value:', 25259976.0, ' Improvement : 3.840', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_2.png')
+Iteration 2 completed in 23s
+Starting iteration 3 of 50
+('Current loss value:', 24935598.0, ' Improvement : 1.284', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_3.png')
+Iteration 3 completed in 23s
+Starting iteration 4 of 50
+('Current loss value:', 24772844.0, ' Improvement : 0.653', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_4.png')
+Iteration 4 completed in 23s
+Starting iteration 5 of 50
+('Current loss value:', 24672832.0, ' Improvement : 0.404', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_5.png')
+Iteration 5 completed in 23s
+Starting iteration 6 of 50
+('Current loss value:', 24605432.0, ' Improvement : 0.273', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_6.png')
+Iteration 6 completed in 23s
+Starting iteration 7 of 50
+('Current loss value:', 24558898.0, ' Improvement : 0.189', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_7.png')
+Iteration 7 completed in 24s
+Starting iteration 8 of 50
+('Current loss value:', 24526644.0, ' Improvement : 0.131', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_8.png')
+Iteration 8 completed in 23s
+Starting iteration 9 of 50
+('Current loss value:', 24502444.0, ' Improvement : 0.099', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_9.png')
+Iteration 9 completed in 24s
+Starting iteration 10 of 50
+('Current loss value:', 24484988.0, ' Improvement : 0.071', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_10.png')
+Iteration 10 completed in 24s
+Starting iteration 11 of 50
+('Current loss value:', 24472300.0, ' Improvement : 0.052', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_11.png')
+Iteration 11 completed in 24s
+Starting iteration 12 of 50
+('Current loss value:', 24462266.0, ' Improvement : 0.041', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_12.png')
+Iteration 12 completed in 24s
+Starting iteration 13 of 50
+('Current loss value:', 24454322.0, ' Improvement : 0.032', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_13.png')
+Iteration 13 completed in 24s
+Starting iteration 14 of 50
+('Current loss value:', 24448002.0, ' Improvement : 0.026', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_14.png')
+Iteration 14 completed in 24s
+Starting iteration 15 of 50
+('Current loss value:', 24442708.0, ' Improvement : 0.022', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_15.png')
+Iteration 15 completed in 24s
+Starting iteration 16 of 50
+('Current loss value:', 24438242.0, ' Improvement : 0.018', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_16.png')
+Iteration 16 completed in 24s
+Starting iteration 17 of 50
+('Current loss value:', 24434290.0, ' Improvement : 0.016', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_17.png')
+Iteration 17 completed in 24s
+Starting iteration 18 of 50
+('Current loss value:', 24430662.0, ' Improvement : 0.015', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_18.png')
+Iteration 18 completed in 24s
+Starting iteration 19 of 50
+('Current loss value:', 24427424.0, ' Improvement : 0.013', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_19.png')
+Iteration 19 completed in 24s
+Starting iteration 20 of 50
+('Current loss value:', 24424544.0, ' Improvement : 0.012', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_20.png')
+Iteration 20 completed in 23s
+Starting iteration 21 of 50
+('Current loss value:', 24422028.0, ' Improvement : 0.010', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_21.png')
+Iteration 21 completed in 24s
+Starting iteration 22 of 50
+('Current loss value:', 24419826.0, ' Improvement : 0.009', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_22.png')
+Iteration 22 completed in 24s
+Starting iteration 23 of 50
+('Current loss value:', 24417808.0, ' Improvement : 0.008', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_23.png')
+Iteration 23 completed in 24s
+Starting iteration 24 of 50
+('Current loss value:', 24416066.0, ' Improvement : 0.007', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_24.png')
+Iteration 24 completed in 24s
+Starting iteration 25 of 50
+('Current loss value:', 24414426.0, ' Improvement : 0.007', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_25.png')
+Iteration 25 completed in 23s
+Starting iteration 26 of 50
+('Current loss value:', 24412934.0, ' Improvement : 0.006', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_26.png')
+Iteration 26 completed in 24s
+Starting iteration 27 of 50
+('Current loss value:', 24411556.0, ' Improvement : 0.006', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_27.png')
+Iteration 27 completed in 24s
+Starting iteration 28 of 50
+('Current loss value:', 24410278.0, ' Improvement : 0.005', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_28.png')
+Iteration 28 completed in 39s
+Starting iteration 29 of 50
+('Current loss value:', 24409074.0, ' Improvement : 0.005', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_29.png')
+Iteration 29 completed in 40s
+Starting iteration 30 of 50
+('Current loss value:', 24407952.0, ' Improvement : 0.005', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_30.png')
+Iteration 30 completed in 40s
+Starting iteration 31 of 50
+('Current loss value:', 24407042.0, ' Improvement : 0.004', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_31.png')
+Iteration 31 completed in 40s
+Starting iteration 32 of 50
+('Current loss value:', 24406318.0, ' Improvement : 0.003', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_32.png')
+Iteration 32 completed in 40s
+Starting iteration 33 of 50
+('Current loss value:', 24405682.0, ' Improvement : 0.003', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_33.png')
+Iteration 33 completed in 40s
+Starting iteration 34 of 50
+('Current loss value:', 24405184.0, ' Improvement : 0.002', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_34.png')
+Iteration 34 completed in 40s
+Starting iteration 35 of 50
+('Current loss value:', 24404768.0, ' Improvement : 0.002', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_35.png')
+Iteration 35 completed in 44s
+Starting iteration 36 of 50
+('Current loss value:', 24404422.0, ' Improvement : 0.001', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_36.png')
+Iteration 36 completed in 49s
+Starting iteration 37 of 50
+('Current loss value:', 24404120.0, ' Improvement : 0.001', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_37.png')
+Iteration 37 completed in 41s
+Starting iteration 38 of 50
+('Current loss value:', 24403848.0, ' Improvement : 0.001', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_38.png')
+Iteration 38 completed in 59s
+Starting iteration 39 of 50
+('Current loss value:', 24403628.0, ' Improvement : 0.001', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_39.png')
+Iteration 39 completed in 59s
+Starting iteration 40 of 50
+('Current loss value:', 24403444.0, ' Improvement : 0.001', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_40.png')
+Iteration 40 completed in 59s
+Starting iteration 41 of 50
+('Current loss value:', 24403396.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_41.png')
+Iteration 41 completed in 86s
+Starting iteration 42 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_42.png')
+Iteration 42 completed in 73s
+Starting iteration 43 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_43.png')
+Iteration 43 completed in 58s
+Starting iteration 44 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_44.png')
+Iteration 44 completed in 59s
+Starting iteration 45 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_45.png')
+Iteration 45 completed in 59s
+Starting iteration 46 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_46.png')
+Iteration 46 completed in 59s
+Starting iteration 47 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_47.png')
+Iteration 47 completed in 59s
+Starting iteration 48 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_48.png')
+Iteration 48 completed in 59s
+Starting iteration 49 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_49.png')
+Iteration 49 completed in 58s
+Starting iteration 50 of 50
+('Current loss value:', 24403388.0, ' Improvement : 0.000', '%')
+Rescaling Image to (400, 266)
+('Image saved as', 'result_simplified_31_21_11/result_at_iteration_50.png')
+Iteration 50 completed in 59s
