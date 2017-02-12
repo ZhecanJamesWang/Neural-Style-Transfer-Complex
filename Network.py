@@ -194,6 +194,7 @@ def preprocess_image(image_path, load_dims=False, read_mode="color"):
 
     img = imresize(img, (img_width, img_height)).astype('float32')
 
+    imsave(result_prefix + 'resizedOriginal.png', rgb)
     # RGB -> BGR
     img = img[:, :, ::-1]
 
