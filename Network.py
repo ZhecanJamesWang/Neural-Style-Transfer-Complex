@@ -57,7 +57,9 @@ parser.add_argument("--style_weight", dest="style_weight", nargs='+', default=[1
 parser.add_argument("--style_scale", dest="style_scale", default=1.0, type=float,
                     help="Scale the weighing of the style")
 
-parser.add_argument("--total_variation_weight", dest="tv_weight", default=8.5e-5, type=float,
+# parser.add_argument("--total_variation_weight", dest="tv_weight", default=8.5e-5, type=float,
+#                     help="Total Variation weight")
+parser.add_argument("--total_variation_weight", dest="tv_weight", default = 1.0, type=float,
                     help="Total Variation weight")
 
 parser.add_argument("--num_iter", dest="num_iter", default=10, type=int,
@@ -84,7 +86,7 @@ parser.add_argument("--content_layer", dest="content_layer", default="block4_con
 parser.add_argument("--init_image", dest="init_image", default="content", type=str,
                     help="Initial image used to generate the final image. Options are 'content', 'noise', or 'gray'")
 
-parser.add_argument("--pool_type", dest="pool", default="max", type=str,
+parser.add_argument("--pool_type", dest="pool", default="ave", type=str,
                     help='Pooling type. Can be "ave" for average pooling or "max" for max pooling')
 
 parser.add_argument('--preserve_color', dest='color', default="False", type=str,
@@ -171,14 +173,14 @@ def preprocess_image(image_path, load_dims=False, read_mode="color"):
 
     mode = "RGB" if read_mode == "color" else "L"
     img = imread(image_path, mode=mode)  # Prevents crashes due to PNG images (ARGB)
-
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     if mode == "L":
         # Expand the 1 channel grayscale to 3 channel grayscale image
         temp = np.zeros(img.shape + (3,), dtype=np.uint8)
         temp[:, :, 0] = img
         temp[:, :, 1] = img.copy()
         temp[:, :, 2] = img.copy()
-
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         img = temp
 
     if load_dims:
@@ -197,14 +199,14 @@ def preprocess_image(image_path, load_dims=False, read_mode="color"):
     imsave(result_prefix + 'resizedOriginal.png', img)
     # RGB -> BGR
     img = img[:, :, ::-1]
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     img[:, :, 0] -= 103.939
     img[:, :, 1] -= 116.779
     img[:, :, 2] -= 123.68
-
     if K.image_dim_ordering() == "th":
         img = img.transpose((2, 0, 1)).astype('float32')
-
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     img = np.expand_dims(img, axis=0)
     return img
 

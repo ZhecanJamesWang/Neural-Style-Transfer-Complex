@@ -2,3 +2,29 @@ james@eea0604lnx:~/Neural-Style-Transfer-Complex$ python Network.py images/input
 Using TensorFlow backend.
 Model loaded.
 Starting iteration 1 of 50
+
+
+('Current loss value:', 4.4473194e+08, ' Improvement : 0.171', '%')
+Rescaling Image to (400, 400)
+('Image saved as', 'facial_content_weight_0.05_3_02122017/_at_iteration_46.png')
+Iteration 46 completed in 299s
+Starting iteration 47 of 50
+('Current loss value:', 4.439928e+08, ' Improvement : 0.166', '%')
+Rescaling Image to (400, 400)
+('Image saved as', 'facial_content_weight_0.05_3_02122017/_at_iteration_47.png')
+Iteration 47 completed in 300s
+Starting iteration 48 of 50
+('Current loss value:', 4.4327654e+08, ' Improvement : 0.161', '%')
+Rescaling Image to (400, 400)
+('Image saved as', 'facial_content_weight_0.05_3_02122017/_at_iteration_48.png')
+Iteration 48 completed in 296s
+Starting iteration 49 of 50
+('Current loss value:', 4.4259651e+08, ' Improvement : 0.153', '%')
+Rescaling Image to (400, 400)
+('Image saved as', 'facial_content_weight_0.05_3_02122017/_at_iteration_49.png')
+Iteration 49 completed in 230s
+Starting iteration 50 of 50
+('Current loss value:', 4.419383e+08, ' Improvement : 0.149', '%')
+Rescaling Image to (400, 400)
+('Image saved as', 'facial_content_weight_0.05_3_02122017/_at_iteration_50.png')
+Iteration 50 completed in 203s
