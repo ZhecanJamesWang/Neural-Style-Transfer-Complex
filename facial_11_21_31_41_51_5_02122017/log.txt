@@ -1,0 +1,4 @@
+james@eea0604lnx:~/Neural-Style-Transfer-Complex$ python Network.py images/inputs/face/content/8.png images/inputs/face/style/CFD-BM-033-003-N_2048FC.png  facial_11_21_31_41_51_5_02122017/result --num_iter 50 --content_layer block4_conv1
+Using TensorFlow backend.
+Model loaded.
+Starting iteration 1 of 50
