@@ -81,7 +81,7 @@ parser.add_argument("--maintain_aspect_ratio", dest="maintain_aspect_ratio", def
 parser.add_argument("--content_layer", dest="content_layer", default="conv5_2", type=str,
                     help="Content layer used for content loss.")
 
-parser.add_argument("--init_image", dest="init_image", default="content", type=str,
+parser.add_argument("--init_image", dest="init_image", default="noise", type=str,
                     help="Initial image used to generate the final image. Options are 'content', 'noise', or 'gray'")
 
 parser.add_argument("--pool_type", dest="pool", default="max", type=str,
