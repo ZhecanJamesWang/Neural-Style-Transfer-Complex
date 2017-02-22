@@ -462,7 +462,7 @@ else:
 
 channel_index = 1 if K.image_dim_ordering() == "th" else -1
 
-feature_layers = ['conv1_1', 'conv2_1', 'conv3_1', 'conv4_1', 'conv5_1']
+feature_layers = ['conv1_1', 'conv1_2', 'conv2_1', 'conv2_2', 'conv3_1', 'conv3_2', 'conv4_1', 'conv4_2', 'conv5_1', 'conv5_2']
 for layer_name in feature_layers:
     layer_features = outputs_dict[layer_name]
     shape = shape_dict[layer_name]
