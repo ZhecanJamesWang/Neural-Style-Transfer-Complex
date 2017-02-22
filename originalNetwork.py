@@ -82,7 +82,7 @@ parser.add_argument("--rescale_method", dest="rescale_method", default="bilinear
 parser.add_argument("--maintain_aspect_ratio", dest="maintain_aspect_ratio", default="True", type=str,
                     help="Maintain aspect ratio of loaded images")
 
-parser.add_argument("--content_layer", dest="content_layer", default="conv4_2", type=str,
+parser.add_argument("--content_layer", dest="content_layer", default="conv2_1", type=str,
                     help="Content layer used for content loss.")
 
 parser.add_argument("--init_image", dest="init_image", default="content", type=str,
