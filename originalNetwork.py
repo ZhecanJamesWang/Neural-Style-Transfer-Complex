@@ -57,13 +57,15 @@ parser.add_argument("--style_weight", dest="style_weight", nargs='+', default=[1
 parser.add_argument("--style_scale", dest="style_scale", default=1.0, type=float,
                     help="Scale the weighing of the style")
 
-parser.add_argument("--total_variation_weight", dest="tv_weight", default=8.5e-5, type=float,
+# parser.add_argument("--total_variation_weight", dest="tv_weight", default=8.5e-5, type=float,
+#                     help="Total Variation weight")
+parser.add_argument("--total_variation_weight", dest="tv_weight", default=0, type=float,
                     help="Total Variation weight")
 
-parser.add_argument("--num_iter", dest="num_iter", default=10, type=int,
+parser.add_argument("--num_iter", dest="num_iter", default=100, type=int,
                     help="Number of iterations")
 
-parser.add_argument("--model", default="vgg16", type=str,
+parser.add_argument("--model", default="vgg19", type=str,
                     help="Choices are 'vgg16' and 'vgg19'")
 
 parser.add_argument("--content_loss_type", default=0, type=int,
@@ -78,7 +80,7 @@ parser.add_argument("--rescale_method", dest="rescale_method", default="bilinear
 parser.add_argument("--maintain_aspect_ratio", dest="maintain_aspect_ratio", default="True", type=str,
                     help="Maintain aspect ratio of loaded images")
 
-parser.add_argument("--content_layer", dest="content_layer", default="conv5_2", type=str,
+parser.add_argument("--content_layer", dest="content_layer", default="conv4_2", type=str,
                     help="Content layer used for content loss.")
 
 parser.add_argument("--init_image", dest="init_image", default="content", type=str,
