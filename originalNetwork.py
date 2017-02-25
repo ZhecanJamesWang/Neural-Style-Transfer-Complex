@@ -82,7 +82,7 @@ parser.add_argument("--rescale_method", dest="rescale_method", default="bilinear
 parser.add_argument("--maintain_aspect_ratio", dest="maintain_aspect_ratio", default="True", type=str,
                     help="Maintain aspect ratio of loaded images")
 
-parser.add_argument("--content_layer", dest="content_layer", default="conv2_1", type=str,
+parser.add_argument("--content_layer", dest="content_layer", default=["conv1_1", "conv2_1", "conv3_1"], type=list,
                     help="Content layer used for content loss.")
 
 parser.add_argument("--init_image", dest="init_image", default="content", type=str,
@@ -451,10 +451,11 @@ def total_variation_loss(x):
 
 # combine these loss functions into a single scalar
 loss = K.variable(0.)
-layer_features = outputs_dict[args.content_layer]  # 'conv5_2' or 'conv4_2'
-base_image_features = layer_features[0, :, :, :]
-combination_features = layer_features[nb_tensors - 1, :, :, :]
-loss += content_weight * content_loss(base_image_features,
+for content_layer in args.content_layer:
+    layer_features = outputs_dict[content_layer]  # 'conv5_2' or 'conv4_2'
+    base_image_features = layer_features[0, :, :, :]
+    combination_features = layer_features[nb_tensors - 1, :, :, :]
+    loss += content_weight * content_loss(base_image_features,
                                       combination_features)
 style_masks = []
 if style_masks_present:
