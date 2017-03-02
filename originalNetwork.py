@@ -56,9 +56,11 @@ parser.add_argument("--content_weight", dest="content_weight", default=0.025, ty
 parser.add_argument("--style_weight", dest="style_weight", nargs='+', default=[1], type=float,
                     help="Weight of style, can be multiple for multiple styles")
 
-parser.add_argument("--style_scale", dest="style_scale", default=1.0, type=float,
-                    help="Scale the weighing of the style")
+# parser.add_argument("--style_scale", dest="style_scale", default=1.0, type=float,
+#                     help="Scale the weighing of the style")
 
+parser.add_argument("--style_scale", dest="style_scale", default=[1.0], type=list,
+                    help="Scale the weighing of the style")
 # parser.add_argument("--total_variation_weight", dest="tv_weight", default=8.5e-5, type=float,
 #                     help="Total Variation weight")
 parser.add_argument("--total_variation_weight", dest="tv_weight", default=0, type=float,
@@ -135,21 +137,22 @@ preserve_color = str_to_bool(args.color)
 content_weight = args.content_weight
 total_variation_weight = args.tv_weight
 
-style_weights = []
+style_weights = args.style_scale
+# style_weights = []
 
-if len(style_image_paths) != len(args.style_weight):
-    print("Mismatch in number of style images provided and number of style weights provided. \n"
-          "Found %d style images and %d style weights. \n"
-          "Equally distributing weights to all other styles." % (len(style_image_paths), len(args.style_weight)))
+# if len(style_image_paths) != len(args.style_weight):
+#     print("Mismatch in number of style images provided and number of style weights provided. \n"
+#           "Found %d style images and %d style weights. \n"
+#           "Equally distributing weights to all other styles." % (len(style_image_paths), len(args.style_weight)))
 
-    weight_sum = sum(args.style_weight) * args.style_scale
-    count = len(style_image_paths)
+#     weight_sum = sum(args.style_weight) * args.style_scale
+#     count = len(style_image_paths)
 
-    for i in range(len(style_image_paths)):
-        style_weights.append(weight_sum / count)
-else:
-    for style_weight in args.style_weight:
-        style_weights.append(style_weight * args.style_scale)
+#     for i in range(len(style_image_paths)):
+#         style_weights.append(weight_sum / count)
+# else:
+#     for style_weight in args.style_weight:
+#         style_weights.append(style_weight * args.style_scale)
 
 # Decide pooling function
 pooltype = str(args.pool).lower()
@@ -470,7 +473,7 @@ feature_layers = ['conv1_1', 'conv1_2',
 'conv3_1', 'conv3_2', 'conv3_3', 'conv3_4',
 'conv4_1', 'conv4_2', 'conv4_3', 'conv4_4',
 'conv5_1', 'conv5_2', 'conv5_3', 'conv5_4']
-
+ 
 for layer_name in feature_layers:
     layer_features = outputs_dict[layer_name]
     shape = shape_dict[layer_name]
