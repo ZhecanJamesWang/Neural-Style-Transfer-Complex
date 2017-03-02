@@ -59,8 +59,8 @@ parser.add_argument("--style_weight", dest="style_weight", nargs='+', default=[1
 # parser.add_argument("--style_scale", dest="style_scale", default=1.0, type=float,
 #                     help="Scale the weighing of the style")
 
-parser.add_argument("--style_scale", dest="style_scale", default=[1.0], type=list,
-                    help="Scale the weighing of the style")
+parser.add_argument("--style_scale", dest="style_scale", default=[400, 300, 200, 100, 100, 100, 100, 100, 100, 100, 100, 100,100,100], 
+    type=list, help="Scale the weighing of the style")
 # parser.add_argument("--total_variation_weight", dest="tv_weight", default=8.5e-5, type=float,
 #                     help="Total Variation weight")
 parser.add_argument("--total_variation_weight", dest="tv_weight", default=0, type=float,
@@ -84,7 +84,10 @@ parser.add_argument("--rescale_method", dest="rescale_method", default="bilinear
 parser.add_argument("--maintain_aspect_ratio", dest="maintain_aspect_ratio", default="True", type=str,
                     help="Maintain aspect ratio of loaded images")
 
-parser.add_argument("--content_layer", dest="content_layer", default=["conv1_1", "conv2_1", "conv3_1", "conv4_1", "conv5_1"], type=list,
+# parser.add_argument("--content_layer", dest="content_layer", default=["conv1_1", "conv2_1", "conv3_1", "conv4_1", "conv5_1"], type=list,
+#                     help="Content layer used for content loss.")
+
+parser.add_argument("--content_layer", dest="content_layer", default=["conv2_1"], type=list,
                     help="Content layer used for content loss.")
 
 parser.add_argument("--init_image", dest="init_image", default="content", type=str,
