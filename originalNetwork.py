@@ -59,8 +59,8 @@ parser.add_argument("--style_weight", dest="style_weight", nargs='+', default=[1
 # parser.add_argument("--style_scale", dest="style_scale", default=1.0, type=float,
 #                     help="Scale the weighing of the style")
 
-parser.add_argument("--style_scale", dest="style_scale", default=[400, 300, 200, 100, 100, 100, 100, 100, 100, 100, 100, 100,100,100], 
-    type=list, help="Scale the weighing of the style")
+parser.add_argument("--style_scale", dest="style_scale", default=[400, 300, 200, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100,100,100, 100, 100], type=list, help="Scale the weighing of the style")
 # parser.add_argument("--total_variation_weight", dest="tv_weight", default=8.5e-5, type=float,
 #                     help="Total Variation weight")
 parser.add_argument("--total_variation_weight", dest="tv_weight", default=0, type=float,
@@ -476,8 +476,9 @@ feature_layers = ['conv1_1', 'conv1_2',
 'conv3_1', 'conv3_2', 'conv3_3', 'conv3_4',
 'conv4_1', 'conv4_2', 'conv4_3', 'conv4_4',
 'conv5_1', 'conv5_2', 'conv5_3', 'conv5_4']
- 
-for layer_name in feature_layers:
+for index in range(len(feature_layers)): 
+    layer_name = feature_layers[index]
+# for layer_name in feature_layers:
     layer_features = outputs_dict[layer_name]
     shape = shape_dict[layer_name]
     combination_features = layer_features[nb_tensors - 1, :, :, :]
@@ -487,8 +488,10 @@ for layer_name in feature_layers:
     for j in range(nb_style_images):
         sl.append(style_loss(style_reference_features[j], combination_features, style_masks[j], shape))
 
-    for j in range(nb_style_images):
-        loss += (style_weights[j] / len(feature_layers)) * sl[j]
+    # for j in range(nb_style_images):
+    #     loss += (style_weights[j] / len(feature_layers)) * sl[j]
+    
+    loss += style_weights[index] * sl[j]
 
 loss += total_variation_weight * total_variation_loss(combination_image)
 
