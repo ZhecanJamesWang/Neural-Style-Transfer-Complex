@@ -478,6 +478,7 @@ feature_layers = ['conv1_1', 'conv1_2',
 'conv5_1', 'conv5_2', 'conv5_3', 'conv5_4']
 for index in range(len(feature_layers)): 
     layer_name = feature_layers[index]
+    print "layer_name :",  layer_name
 # for layer_name in feature_layers:
     layer_features = outputs_dict[layer_name]
     shape = shape_dict[layer_name]
@@ -490,6 +491,12 @@ for index in range(len(feature_layers)):
 
     # for j in range(nb_style_images):
     #     loss += (style_weights[j] / len(feature_layers)) * sl[j]
+    print "sl[j]: ", sl.shape
+    print "[j]: ", j
+    print "len(style_weights) :", len(style_weights)
+    print "[index]: ", index
+    print "len(style_weights): ", len(style_weights)
+    print "style_weights[index]: ", style_weights[index]
     
     loss += style_weights[index] * sl[j]
 
